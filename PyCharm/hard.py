@@ -2,31 +2,21 @@
 # -*- coding: utf-8 -*-#!
 
 
-def unique(s):
-    es = s.partition(' ')
-    z1 = len(es[0])
-    z2 = len(es[2])
-    w1 = es[0]
-    w2 = es[2]
-    list = set()
-    f = 0
-    for i in range(z1):
-        f = 0
-        for j in range(z2):
-            if w1[i] == w2[j]:
-                f = 1
-        if f == 0:
-            list.add(w1[i])
-            yield w1[i]
-    for i in range(z2):
-        f = 0
-        for j in range(z1):
-            if w2[i] == w1[j]:
-                f = 1
-        if f == 0:
-            list.add(w2[i])
-            yield w2[i]
+def check(s):
+    if s.count(' ') == len(s) or len(s) == 0:
+        print("There are no word", file=sys.stderr)
+        exit(1)
 
 
-s = input("Your 2 words: ")
-print("Unique letters for both: "(''.join(unique(s))))
+s = (input("Your text: "))
+check(s)
+
+if (' k' or ' K') not in s:
+    print("There are no word in text with first letter 'k'")
+    exit(0)
+else:
+    ss = s.split()
+    print("There are words with first 'k': ")
+    for i in ss:
+        if i[0] == 'k' or i[0] == 'K':
+            print(i)
