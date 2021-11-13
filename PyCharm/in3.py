@@ -2,24 +2,18 @@
 # -*- coding: utf-8 -*-#!
 
 
-# def unique(it):
-#     s = set()
-#     for x in it:
-#         if x not in s:
-#            s.add(x)
-#            # yield x
-#     return(s)
-#
-# s = input("Your word: ")
-# print(''.join(unique(s)))
+def check(s):
+    if s.count(' ') == len(s) or len(s) == 0:
+        print("There are no word", file=sys.stderr)
+        exit(1)
 
-
-def unique(it):
-    s = []
-    for x in it:
-        if x not in s:
-           s.append(x)
-    return(s)
 
 s = input("Your word: ")
-print("Only unique letters: " + (''.join(unique(s))))
+check(s)
+k = int(input("Number of letter you want to cut: "))
+l = int(input("Number of letter where you want to past: "))
+ch = s[k]
+s1 = s[:k]
+s2 = s[(k + 1):(l + 1)]
+s3 = s[(l + 1):]
+print("Edited word: ", s1 + s2 + ch + s3)

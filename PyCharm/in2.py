@@ -4,13 +4,18 @@
 import sys
 
 
-s = (input("Your text: "))
+def check(s):
+    if s.count(' ') == len(s) or len(s) == 0:
+        print("There are no text", file=sys.stderr)
+        exit(1)
 
-if s.count(',') == 0 :
-    print("There is no ',' in your text", file=sys.stderr)
-    exit(1)
+
+s = (input("Your text: "))
+check(s)
+if 'da' not in s:
+    print("There are no 'da' in your text")
+    exit(0)
 else :
-    es = ((s.partition(','))[0])
-    n = es.count('n')
-    N = es.count('N')
-    print(f"{n+N} 'n' were found in your text")
+    ss = s.replace("da", "ne")
+    print(f"Edited text: {ss}")
+
