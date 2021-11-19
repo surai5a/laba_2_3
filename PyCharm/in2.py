@@ -4,18 +4,19 @@
 import sys
 
 
-def check(s):
-    if s.count(' ') == len(s) or len(s) == 0:
+def check(x):
+    if x.count(' ') == len(x) or len(x) == 0:
         print("There are no text", file=sys.stderr)
         exit(1)
 
 
-s = (input("Your text: "))
-check(s)
-if 'da' not in s:
-    print("There are no 'da' in your text")
-    exit(0)
-else :
-    ss = s.replace("da", "ne")
-    print(f"Edited text: {ss}")
+if __name__ == '__main__':
+    s = (input("Your text: "))
+    check(s)
+    if 'да' not in s:
+        print("There are no 'да' in your text")
+        exit(0)
+    else:
+        ss = s.replace("да", "не")
+        print(f"Edited text: {ss}")
 
